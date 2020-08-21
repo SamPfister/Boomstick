@@ -24,7 +24,11 @@ public class PlayerMove : MonoBehaviour
     Vector3 velocity;
 
     bool isGrounded;
- 
+
+    private const int maxJumps = 2;
+
+    private int currentJump = 0;
+
     void Update()
     {
         isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
@@ -44,8 +48,17 @@ public class PlayerMove : MonoBehaviour
 
         if (Input.GetButtonDown("Jump") && isGrounded)
         {
+            currentJump = 1;
             velocity.y = Mathf.Sqrt(-2f * gravity * jumpHeight);
+           
         }
+        else if (Input.GetButtonDown("Jump") && (currentJump < maxJumps))
+        {
+            velocity.y = Mathf.Sqrt(-2f * gravity * jumpHeight);
+            currentJump++;
+
+        }
+
 
         velocity.y += gravity * Time.deltaTime;
 
