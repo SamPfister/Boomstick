@@ -7,11 +7,11 @@ using UnityEngine;
 
 public class PlayerMove : MonoBehaviour
 {
-    //Credit to Brackeys fo rhte code: https://www.youtube.com/watch?v=_QajrabyTJc&t=115s
+    //Credit to Brackeys for the code: https://www.youtube.com/watch?v=_QajrabyTJc&t=115s
 
     public float gravity = -10f;
 
-    public float speed = 12f;
+    public float speed = 30f;
 
     public float jumpHeight = 3f;
 
@@ -33,6 +33,7 @@ public class PlayerMove : MonoBehaviour
         {
             velocity.y = -2f;
         }
+
 
         float x = Input.GetAxis("Horizontal");
         float z = Input.GetAxis("Vertical");
