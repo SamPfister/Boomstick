@@ -18,7 +18,7 @@ public class PlayerMove : MonoBehaviour
     public CharacterController controller;
 
     public Transform groundCheck;
-    public float groundDistance = 0.4f;
+    public float groundDistance = 1f;
     public LayerMask groundMask;
 
     Vector3 velocity;
@@ -36,6 +36,7 @@ public class PlayerMove : MonoBehaviour
         if(isGrounded && velocity.y < 0)
         {
             velocity.y = -2f;
+            currentJump = 0;
         }
 
 
